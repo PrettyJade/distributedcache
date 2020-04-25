@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: redisOps
+  redis:
+    host: 172.16.249.205 #120.24.179.186 # Redis服务器地址 
+    database: 0 # Redis数据库索引（默认为0）  
+    port: 6379 # Redis服务器连接端口
+    password: ydyy@KEDACOM.COM # Redis服务器连接密码（默认为空）  
+    jedis:
+      pool:
+        max-active: 200  # 连接池最大连接数（使用负值表示没有限制） 
+        max-wait: 30000  #连接池最大阻塞等待时间（使用负值表示没有限制）  
+        max-idle: 20  # 连接池中的最大空闲连接 
+        min-idle: 10 # 连接池中的最小空闲连接
+    timeout: 30000 # 连接超时时间（毫秒） 
+vline:
+  cache:
+    defaultspec: initialCapacity=50,maximumSize=500,expireAfterWrite=5s,expireAfterAccess=500s
+    cachespecs:
+      CONFIG_INFO: initialCapacity=50,maximumSize=500,expireAfterWrite=5s,expireAfterAccess=500s
+      USER_LOGIN_DEVICE_INFO: initialCapacity=60,maximumSize=500,expireAfterWrite=5s,expireAfterAccess=7s
+logging:   level:
+    root: INFO
+    com.kedacom.redisops.ops: DEBUG
+  
+    
